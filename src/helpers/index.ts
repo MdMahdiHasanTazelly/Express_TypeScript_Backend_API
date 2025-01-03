@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 const SECRET = 'express-ts-backend-secret';
 
+
 //generates 128 cryptogrphic random bytes
 //the bytes are converted into base 64 encoded string
 //base 64 encoding ----> representation of binary data into textual format
@@ -17,3 +18,5 @@ export const random = ()=> (crypto.randomBytes(128).toString('base64'));
 export const authentication = (salt: string, password: string)=>{
     return crypto.createHmac('sha256', [salt, password].join('/')).update(SECRET).digest();
 }
+
+

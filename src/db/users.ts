@@ -5,9 +5,9 @@ const userSchema = new mongoose.Schema({
     email: {type: String, require: true},
     authentication: {
         //"select" ensures the field won't fetched from DB
-        password: {type: String, required: true, select: false },
-        salt: {type: String, select: false},
-        sessionToken: { type: String, select: false}
+        password: {type: String, required: true },
+        salt: {type: String},
+        sessionToken: { type: String}
     }
 });
 

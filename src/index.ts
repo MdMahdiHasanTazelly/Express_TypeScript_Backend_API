@@ -6,7 +6,6 @@ import compression from 'compression';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
-import {authentication, random} from './helpers/index';
 import {router} from "./router/index";
 
 
@@ -25,18 +24,13 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 
-app.listen(PORT, ()=> {
+app.listen(PORT, async ()=> {
     console.log(`Listening on port ${PORT}`)
   
     //database connection
-    mongoose.connect(`${process.env.DB_URL}`)
-    .then( ()=>{
-        console.log(`Database is connected.`);
-    })
-    .catch( (err)=>{
-        console.log(`${err}`);
-    })
-
+    await mongoose.connect(`${process.env.DB_URL}`)
+    console.log(`Database is connected.`);
+   
 });
 
 
