@@ -43,7 +43,7 @@ export const isOwner = async(req: Request, res: Response, next: NextFunction)=>{
         let currentUser = await getUserBySessionToken(req.cookies['AUTH']);
 
         if(id != currentUser?._id.toString()){
-            res.status(400).json({"message": 'You are unauthorized to delete this.'});
+            res.status(400).json({"message": 'You are not authorized.'});
             return;
         }
 

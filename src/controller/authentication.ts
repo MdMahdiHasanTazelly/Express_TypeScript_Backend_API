@@ -77,7 +77,7 @@ export const login = async(req: Request, res: Response)=>{
            
             res.cookie('AUTH', user.authentication.sessionToken, {domain: 'localhost', path: '/'});
 
-            res.status(200).json({user});
+            res.status(200).json({"message": "Logged in successfully!"});
         }
         
 
