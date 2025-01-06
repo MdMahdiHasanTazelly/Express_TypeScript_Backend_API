@@ -23,6 +23,7 @@ export const isAuthenticated = async(req: Request, res: Response, next: NextFunc
 
         //existing user will be merged into the req object
         //merge is from lodash library
+        //it can be achieved without lodash as ----> req.identity = existingUser
         merge(req, {identity: existingUser});
 
         next();

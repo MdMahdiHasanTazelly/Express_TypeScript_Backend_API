@@ -6,7 +6,8 @@ import compression from 'compression';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 
-import {router} from "./router/index";
+import {authRouter} from "./router/index";
+import { userRouter } from './router/user';
 
 
 
@@ -42,4 +43,6 @@ app.get("/test", (req: Request, res: Response)=>{
 });
 
 
-app.use("/", router);
+app.use("/auth", authRouter);
+
+app.use("/user", userRouter);
