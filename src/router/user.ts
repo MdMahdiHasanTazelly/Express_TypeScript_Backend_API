@@ -1,8 +1,11 @@
 import express from 'express';
-import { getAllUser } from '../controller/users';
-import { isAuthenticated } from '../middlewares/index';
+import { deleteUser, getAllUser } from '../controller/users';
+import { isAuthenticated, isOwner } from '../middlewares/index';
+
 const router = express.Router();
 
 router.get("/all", isAuthenticated, getAllUser);
+
+router.delete("/:id", isAuthenticated, isOwner, deleteUser);
 
 export {router as userRouter};

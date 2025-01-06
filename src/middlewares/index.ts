@@ -33,3 +33,24 @@ export const isAuthenticated = async(req: Request, res: Response, next: NextFunc
         res.status(400);
     }
 }
+
+
+export const isOwner = async(req: Request, res: Response, next: NextFunction)=>{
+    try{
+        //getting the user's id to be deleted
+        let {id} = req.params;
+        //gettting current user using session token
+        let currentUser = await getUserBySessionToken(req.cookies['AUTH']);
+
+        if(id != currentUser?._id.toString()){
+            res.status(400).json({"message": 'You are unauthorized to delete this.'});
+            return;
+        }
+
+        next();
+
+    }catch(err){
+        console.log(err);
+        res.status(400);
+    }
+}
