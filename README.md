@@ -26,7 +26,7 @@
 <ul>
    <li>
        Clone the repository. <br>
-       <span>git clone https://github.com/MdMahdiHasanTazelly/Express_TypeScript_Backend_API</span>
+       <span style="background-color: #595959">git clone https://github.com/MdMahdiHasanTazelly/Express_TypeScript_Backend_API</span>
    </li>
 
    <li>
@@ -35,7 +35,7 @@
 
    <li>
        Navigate to the main project folder and start the development server. <br>
-       <span>npm run dev</span>
+       <span style="background-color: #595959">npm run dev</span>
    </li>
 </ul>
 
@@ -87,11 +87,6 @@
 
 
 
-<style>
-    span{
-        background-color:rgb(59, 59, 59);
-    }
-</style>
 
 
 
